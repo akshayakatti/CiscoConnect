@@ -34,6 +34,8 @@ IF "%ERRORLEVEL%" == "0" (
 	echo **** Cisco Client Disconnect sucsessfully ***
 	echo ===============================================
 	TIMEOUT /T 6
+	%VPN_CLIENT_EXE_PATH%\vpncli.exe exit
+	taskkill /f /im "%VPN_CLIENT_EXE_PATH%\vpncli.exe"
 	exit /b 0
 ) ELSE (
   echo ===================================
@@ -42,4 +44,3 @@ IF "%ERRORLEVEL%" == "0" (
   pause
   exit /b 1
 )
-pause
